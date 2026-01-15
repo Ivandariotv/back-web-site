@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profession": {
+      "type": "string",
+      "required": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "short_description": {
+      "type": "string"
+    }
+  }
+}
