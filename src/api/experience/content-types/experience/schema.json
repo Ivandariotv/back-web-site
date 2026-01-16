@@ -30,6 +30,32 @@
     "description": {
       "type": "text",
       "required": true
+    },
+    "is_employed": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "work_mode": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Presencial",
+        "Híbrida",
+        "En remoto"
+      ]
+    },
+    "skills": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::skill.skill",
+      "inversedBy": "experiences"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "experiences"
     }
   }
 }

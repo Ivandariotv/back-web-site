@@ -20,6 +20,15 @@
     },
     "short_description": {
       "type": "string"
+    },
+    "linkedin_url": {
+      "type": "string"
+    },
+    "github_url": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
     }
   }
 }

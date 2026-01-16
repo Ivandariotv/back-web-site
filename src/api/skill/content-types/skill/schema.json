@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "skills",
+  "info": {
+    "singularName": "skill",
+    "pluralName": "skills",
+    "displayName": "Skill"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "experiences": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::experience.experience",
+      "mappedBy": "skills"
+    },
+    "skills_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::skills-group.skills-group",
+      "inversedBy": "skills"
+    },
+    "educations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::education.education",
+      "mappedBy": "skills"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "skills"
+    }
+  }
+}
