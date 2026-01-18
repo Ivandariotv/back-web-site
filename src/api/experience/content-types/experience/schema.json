@@ -17,7 +17,18 @@
     },
     "end_date": {
       "type": "date",
-      "required": true
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "is_employed"
+            },
+            false
+          ]
+        }
+      },
+      "required": true,
+      "unique": false
     },
     "job_title": {
       "type": "string",
