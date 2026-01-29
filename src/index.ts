@@ -1,4 +1,4 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
 
 export default {
   /**
@@ -7,7 +7,40 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register({ strapi }: { strapi: Core.Strapi }) {
+    // Extender GraphQL con queries personalizadas
+    const extensionService = strapi.plugin('graphql').service('extension');
+    
+    extensionService.use({
+      typeDefs: `
+        type TotalYearsResponse {
+          years: Int
+          months: Int
+          days: Int
+          totalDays: Int
+        }
+
+        extend type Query {
+          experienceTotalYears: TotalYearsResponse
+        }
+      `,
+      resolvers: {
+        Query: {
+          experienceTotalYears: {
+            resolve: async () => {
+              const service = strapi.service('api::experience.experience');
+              return await service.calculateTotalYears();
+            },
+          },
+        },
+      },
+      resolversConfig: {
+        'Query.experienceTotalYears': {
+          auth: true,
+        },
+      },
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
