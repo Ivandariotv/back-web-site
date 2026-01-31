@@ -36,7 +36,9 @@ export default {
       },
       resolversConfig: {
         'Query.experienceTotalYears': {
-          auth: false,
+          auth: {
+            scope: ['api::experience.experience.getTotalYears']
+          }
         },
       },
     });
