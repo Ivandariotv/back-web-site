@@ -27,7 +27,7 @@
           ]
         }
       },
-      "required": true,
+      "required": false,
       "unique": false
     },
     "job_title": {
