@@ -1,12 +1,14 @@
-export default () => ({
+export default ({ env }) => ({
   graphql: {
     enabled: true,
     config: {
-      landingPage: true,
-      depthLimit: 10,
-      amountLimit: 100,
+      // Deshabilitar playground/sandbox en producción
+      playgroundAlways: false,
+      defaultLimit: 10,
+      maxLimit: 100,
       apolloServer: {
-        introspection: true,
+        // Deshabilitar introspection en producción
+        introspection: env('NODE_ENV') !== 'production',
       },
     },
   },
