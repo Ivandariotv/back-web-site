@@ -36,7 +36,7 @@ export default {
       },
       resolversConfig: {
         'Query.experienceTotalYears': {
-          auth: true,
+          auth: false,
         },
       },
     });
